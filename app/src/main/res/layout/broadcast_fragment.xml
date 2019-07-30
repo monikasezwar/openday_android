@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/top_heading_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:background="@drawable/grey_rounded_rectangle">
+
+        <TextView
+            android:id="@+id/class_name"
+            android:text="LKG"
+            android:textSize="@dimen/text_large_sp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_alignParentLeft="true"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_small"
+            app:srcCompat="@drawable/ic_sms"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/subject_of_the_email"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_small"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:textSize="@dimen/text_large_sp"
+        android:paddingLeft="@dimen/margin_small"
+        android:background="@drawable/edit_text_box_background">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/mail_body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/type_your_message_here"
+        android:textSize="@dimen/text_large_sp"
+        android:textColorHint="@color/light_grey"
+        android:textColor="@color/black"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:gravity="top|left"
+        android:paddingLeft="@dimen/margin_small"
+        android:paddingTop="@dimen/margin_small"
+        android:background="@drawable/edit_text_box_background"/>
+
+</LinearLayout>

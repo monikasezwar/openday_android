@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_small">6dp</dimen>
+    <dimen name="margin_medium">14dp</dimen>
+    <dimen name="margin_large">18dp</dimen>
+    <dimen name="margin_xlarge">24dp</dimen>
+    <dimen name="margin_xxlarge">32dp</dimen>
+    <dimen name="margin_xxxlarge">64dp</dimen>
+
+    <dimen name="text_small_sp">10sp</dimen>
+    <dimen name="text_medium_sp">12sp</dimen>
+    <dimen name="text_large_sp">15sp</dimen>
+    <dimen name="text_xtra_large_sp">18sp</dimen>
+    <dimen name="text_heading">24sp</dimen>
+    <dimen name="standard_btn_height">60dp</dimen>
+</resources>

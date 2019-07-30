@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin_small"
+    android:layout_marginBottom="@dimen/margin_small">
+
+    <Button
+        android:id="@+id/roll_no_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_centerVertical="true"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_medium_sp"
+        android:textAlignment="center"
+        android:text="01"
+        android:letterSpacing="0.1"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:id="@+id/student_name"
+        android:textSize="@dimen/text_large_sp"
+        fontPath="Roboto-Medium.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/roll_no_icon"
+        />
+
+    <!--<ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:src="@drawable/absent_icon"/>-->
+
+    <CheckBox
+        android:id="@+id/attendance_status_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_centerVertical="true"
+        android:button="@null"
+        android:text="P"
+        android:background="@drawable/checkbox_pick_style"
+        android:gravity="center_horizontal|center_vertical" />
+
+</RelativeLayout>

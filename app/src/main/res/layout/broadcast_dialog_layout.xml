@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/grey_rounded_rectangle"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/mail_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ic_sms"
+        android:layout_marginTop="@dimen/margin_xxlarge"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_xxlarge"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/broadcast_msg_part_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_large_sp"
+            fontPath="Roboto-Medium.ttf"
+            android:text="@string/broadcast_msg_part_one" />
+
+        <TextView
+            android:id="@+id/absent_student_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:paddingLeft="2dp"
+            android:layout_toRightOf="@+id/broadcast_msg_part_one"
+            android:textSize="@dimen/text_large_sp"
+            fontPath="Roboto-Medium.ttf"
+            android:textColor="@color/blue_color" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/broadcast_msg_part_two"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        fontPath="Roboto-Medium.ttf"
+        android:textSize="@dimen/text_large_sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/students"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        fontPath="Roboto-Medium.ttf"
+        android:textSize="@dimen/text_large_sp"/>
+
+    <LinearLayout
+        android:id="@+id/confirm_send_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/standard_btn_height"
+        android:background="@color/dark_4a"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        android:gravity="center|bottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:text="@string/confirm_send"
+            android:textAllCaps="true"
+            fontPath="Roboto-Bold.ttf"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_large_sp" />
+    </LinearLayout>
+
+</LinearLayout>

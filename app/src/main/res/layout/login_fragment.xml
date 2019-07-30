@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/textView"
+        android:text="@string/openday_teachers"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_heading"
+        fontPath="Roboto-Bold.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="95dp" />
+
+    <TextView
+        android:id="@+id/welcome_back"
+        android:text="@string/welcome_back"
+        android:textColor="@color/light_grey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="@dimen/margin_xxxlarge"
+        android:textSize="@dimen/text_xtra_large_sp"
+        fontPath="Roboto-Regular.ttf"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:layout_editor_absoluteY="138dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:text="@string/enter_your_number"
+        android:textColor="@color/light_grey"
+        android:textSize="@dimen/text_xtra_large_sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="@dimen/margin_small"
+        fontPath="Roboto-Regular.ttf"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_back"
+        tools:layout_editor_absoluteY="186dp" />
+
+    <EditText
+        android:id="@+id/editText_mobile_number"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_xtra_large_sp"
+        android:background="@drawable/edit_text_box_background"
+        android:letterSpacing="0.07"
+        android:ems="10"
+        android:hint="@string/mobile_number"
+        android:inputType="number"
+        fontPath="Roboto-Regular.ttf"
+        android:paddingLeft="8dp"
+        android:paddingRight="12dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:textColorHint="@color/light_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:layout_editor_absoluteY="231dp" />
+
+    <TextView
+        android:id="@+id/proceed_to_login_text"
+        android:text="@string/proceed_to_login"
+        android:textSize="@dimen/text_xtra_large_sp"
+        android:textColor="@color/blue_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="@dimen/margin_xxxlarge"
+        fontPath="Roboto-Regular.ttf"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_mobile_number"
+        tools:layout_editor_absoluteY="329dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/textView5"
+        fontPath="Roboto-Regular.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/dont_have_an_account"
+        android:textColor="@color/light_grey"
+        android:textSize="@dimen/text_large_sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/here_text"
+        fontPath="Roboto-Regular.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/here"
+        android:textColor="@color/blue_color"
+        android:textSize="@dimen/text_large_sp"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView5" />
+
+    <include
+        android:id="@+id/progressBar"
+        layout="@layout/progressbar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
