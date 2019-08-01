@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -11,11 +12,14 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
+
 
 public class Utils {
 
@@ -47,31 +51,32 @@ public class Utils {
         toast.show();
     }
 
-  /*  public static Long convertDateIntoTimeMillis(String currentDate) {
+    public static Long convertDateIntoTimeMillis(String currentDate) {
         Date parsed = new Date();
         if (TextUtils.isEmpty(currentDate)) {
             return 0L;
         }
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-        simpleDateFormat.setTimeZone(TimeZone.getDefault());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-M-yyyy");
+        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("IST"));
         try {
             parsed = simpleDateFormat.parse(currentDate);
         } catch (ParseException e) {
             e.printStackTrace();
         }
         return parsed.getTime();
-    }*/
+    }
 
-  public static Long convertDateIntoTimeMillis(String currentDate){
-      SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yy");
-      Date date = null;
+  public static Timestamp convertDateIntoTimeStamp(String currentDate){
+      Timestamp timestamp = null;
       try {
-          date = sdf.parse(currentDate);
+          Date date = new SimpleDateFormat("dd-M-yyyy").parse(currentDate);
+          Log.i("MONIKA","date="+date);
+          timestamp = new Timestamp(date.getTime());
+          Log.i("MONIKA","timestamp="+timestamp);
       } catch (ParseException e) {
           e.printStackTrace();
       }
-      long millis = date.getTime();
-      return millis;
+      return timestamp;
     }
 
     public static void hideKeyboard(View view){

@@ -53,16 +53,18 @@ public class LoginView {
                         call.enqueue(new Callback<LoginResponse>() {
                             @Override
                             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                                // readResponse(response.body());
                                 if (response.isSuccessful()) {
                                     if (response.body().getStatus() == JSONParserConstants.SUCCESS_CODE) {
                                         readResponse(response.body());
                                     } else if (response.body().getStatus() == JSONParserConstants.NOT_FOUND) {
                                         Utils.showToast(loginFragment.requireActivity(), "Username not found");
+                                        progressBar.setVisibility(View.GONE);
                                     } else if (response.body().getStatus() == JSONParserConstants.ERROR_CODE) {
                                         Utils.showToast(loginFragment.requireActivity(), "Invalid Username");
+                                        progressBar.setVisibility(View.GONE);
                                     } else {
                                         Utils.showToast(loginFragment.requireActivity(), "Server error");
+                                        progressBar.setVisibility(View.GONE);
                                     }
                                 }
                             }

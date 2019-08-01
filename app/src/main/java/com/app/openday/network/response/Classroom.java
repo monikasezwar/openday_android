@@ -12,11 +12,11 @@ public class Classroom {
     @Expose
     private String name;
 
-    public String getId() {
+    public String getClassId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setClassId(String id) {
         this.id = id;
     }
 

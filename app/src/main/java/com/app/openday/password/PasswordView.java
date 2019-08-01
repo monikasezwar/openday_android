@@ -65,10 +65,13 @@ public class PasswordView {
                                         saveLoginDetails(response.body());
                                     } else if (response.body().getStatus() == JSONParserConstants.ERROR_CODE_2) {
                                         Utils.showToast(passwordFragment.requireActivity(), "Incorrect Password");
+                                        progressBar.setVisibility(View.GONE);
                                     } else if (response.body().getStatus() == JSONParserConstants.ERROR_CODE) {
                                         Utils.showToast(passwordFragment.requireActivity(), "Invalid Password");
+                                        progressBar.setVisibility(View.GONE);
                                     } else {
                                         Utils.showToast(passwordFragment.requireActivity(), "Server Error");
+                                        progressBar.setVisibility(View.GONE);
                                     }
                                 }
                             }

@@ -36,11 +36,11 @@ public class ClassroomData {
         this.students = students;
     }
 
-    public String getId() {
+    public String getTeacherId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setTeacherId(String id) {
         this.id = id;
     }
 

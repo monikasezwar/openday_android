@@ -1,7 +1,6 @@
 package com.app.openday.attendance;
 
 import android.app.DatePickerDialog;
-import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -76,7 +75,8 @@ public class AttendanceView implements OnSubmitClickListener, BroadcastDialog.On
                 callDatePickDialog();
             }
         });
-        setStudentList(attendanceRecord);
+        // for showing todays attendance(taken or not taken) on opening attendance fragment
+        getAttendanceOfSelectedDate(System.currentTimeMillis());
     }
 
     private void callDatePickDialog() {
@@ -92,7 +92,8 @@ public class AttendanceView implements OnSubmitClickListener, BroadcastDialog.On
                                           int monthOfYear, int dayOfMonth) {
 
                         currentDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-                        getAttendanceOfSelectedDate(currentDate.toString());
+                        Long timeInMillis = Utils.convertDateIntoTimeMillis(currentDate.getText().toString());
+                        getAttendanceOfSelectedDate(timeInMillis);
 
                     }
                 }, mYear, mMonth, mDay);
@@ -101,16 +102,14 @@ public class AttendanceView implements OnSubmitClickListener, BroadcastDialog.On
 
     }
 
-    private void getAttendanceOfSelectedDate(String currentDate) {
+    private void getAttendanceOfSelectedDate(Long timeInMillis) {
         if(Utils.isConnectedToNetwork(attendanceFragment.requireContext())) {
-            Long timeStamp = System.currentTimeMillis();/*Utils.convertDateIntoTimeMillis(currentDate);*/
-            Log.i("MONIKA", timeStamp.toString());
             authToken = new PrefManager(attendanceFragment.getContext()).getLoginDetails();
             Map<String, String> hashMap = new HashMap();
             hashMap.put("Authorization", authToken);
             //AttendanceRequest attendanceRequest = new AttendanceRequest(timeStamp,attendanceFragment.getArguments().getString(Constants.CLASSROOM_ID));
             AttendanceService service = RetrofitClientInstance.getRetrofitInstance().create(AttendanceService.class);
-            Call<AttendanceResponse> call = service.getAttendance(hashMap, timeStamp, classroomId);
+            Call<AttendanceResponse> call = service.getAttendance(hashMap, timeInMillis, classroomId);
             call.enqueue(new Callback<AttendanceResponse>() {
                 @Override
                 public void onResponse(Call<AttendanceResponse> call, Response<AttendanceResponse> response) {

@@ -176,23 +176,34 @@ public class MainPageView implements AdapterView.OnItemSelectedListener {
     private void readResponse(ClassResponse body) {
         List<Classroom> classroomList = body.getClassroomData().getClassrooms();
         studentList = body.getClassroomData().getStudents();
-        classRoomId = body.getClassroomData().getId();
+        //initially taking first classroom Id, it will change on changing spinner
+        classRoomId = classroomList.get(0).getClassId();
+        setClassroomList(classroomList);
+        setStudentList(studentList);
+    }
+
+    private void setClassroomList(final List<Classroom> classroomList) {
         List<String> classRoomNames = new ArrayList<>();
 
         for(int i=0;i<classroomList.size();i++){
             classRoomNames.add(classroomList.get(i).getName());
         }
-
-        setClassroomList(classRoomNames);
-        setStudentList(studentList);
-    }
-
-    private void setClassroomList(List<String> classroomNames) {
         ArrayAdapter<String> adapter = new ArrayAdapter(mMainPageFragment.requireActivity(),
-                android.R.layout.simple_spinner_item,classroomNames);
+                android.R.layout.simple_spinner_item,classRoomNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinner.setAdapter(adapter);
-        mSpinner.setOnItemSelectedListener(this);
+        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                int index = parent.getSelectedItemPosition();
+                classRoomId = classroomList.get(index).getClassId();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                classRoomId = classroomList.get(0).getClassId();
+            }
+        });
     }
 
     private void setStudentList( List<Student> studentList){

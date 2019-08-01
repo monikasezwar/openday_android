@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_empty_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/empty_text"
+        fontPath="Montserrat-SemiBold.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Attendance for this date has not been taken"
+        android:textColor="@color/light_grey"
+        android:textSize="@dimen/text_large_sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+
+</FrameLayout>

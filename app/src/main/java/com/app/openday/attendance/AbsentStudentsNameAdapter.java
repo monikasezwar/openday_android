@@ -24,7 +24,7 @@ import java.util.List;
 public class AbsentStudentsNameAdapter extends RecyclerView.Adapter {
 
     private List<Student> studentList;
-    private List<Record> attendanceRecords;
+    private List<Record> attendanceRecord;
     private Context context;
     private AbsentStudentsNameViewHolder studentsNameViewHolder;
     //there should be a different POJO class of student holding info like parents contact, address , n all
@@ -35,10 +35,10 @@ public class AbsentStudentsNameAdapter extends RecyclerView.Adapter {
     private TextView submitButton;
 
 
-    public AbsentStudentsNameAdapter(Context context, List<Student> studentList, List<Record> attendanceRecords, AttendanceView attendanceView, AttendanceFragment attendanceFragment){
+    public AbsentStudentsNameAdapter(Context context, List<Student> studentList, List<Record> attendanceRecord, AttendanceView attendanceView, AttendanceFragment attendanceFragment){
         this.context = context;
         this.studentList = studentList;
-        this.attendanceRecords = attendanceRecords;
+        this.attendanceRecord = attendanceRecord;
         this.callback = attendanceView;
         this.attendanceFrag = attendanceFragment;
 
@@ -67,8 +67,8 @@ public class AbsentStudentsNameAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
         studentsNameViewHolder.rollNo.setText(studentList.get(position).getRollNo());
         studentsNameViewHolder.studentName.setText(studentList.get(position).getName());
-        if(attendanceRecords == null){
-            Utils.showToast(context,"Today's attendance has not been taken");
+        if(attendanceRecord == null || attendanceRecord.isEmpty()){
+            Utils.showToast(context,"Attendance of selected date has not been taken");
             studentsNameViewHolder.attendanceStatus.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -85,9 +85,8 @@ public class AbsentStudentsNameAdapter extends RecyclerView.Adapter {
                 }
             });
         }else{
-            studentsNameViewHolder.attendanceStatus.setClickable(false);
-            if(studentList.get(position).getId().contentEquals(attendanceRecords.get(position).getStudent())){
-                if(attendanceRecords.get(position).getAbsent()){
+            if(studentList.get(position).getId().contentEquals(attendanceRecord.get(position).getStudent())){
+                if(attendanceRecord.get(position).getAbsent()){
                     studentsNameViewHolder.attendanceStatus.setBackgroundColor(context.getResources().getColor(R.color.red));
                     studentsNameViewHolder.attendanceStatus.setText("A");
                 }else{
